@@ -18,8 +18,8 @@ class Madlib {
         void addOpperator (string Type); //Adds filler word | Type is (noun, number, adjective, etc)
         void addSentence (string s); //Adds string between filler words
 
-        void getUserInput(string ins[]); //add list of all user inputs
-        string getOut(); //returns filled string
+        void getUserInput(); //add list of all user inputs
+        string getOutput(); //returns filled string
 
         static Madlib getFromFile (string fileName); //Ill try to get this to word as soon as everything else works
 };

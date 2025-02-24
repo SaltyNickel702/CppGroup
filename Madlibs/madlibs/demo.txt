@@ -1,0 +1,1 @@
+This is a demo. A [animal] lives in the [place], and it likes to eat [noun]s

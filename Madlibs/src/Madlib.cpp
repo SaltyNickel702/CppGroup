@@ -11,10 +11,15 @@ void Madlib::addOpperator (string t) {
 void Madlib::addSentence (string s) {
     strs.push_back(s);
 }
-void Madlib::getUserInput(string ins[]) {
-
+void Madlib::getUserInput() {
+    for (int i = 0; i < types.size(); i++) {
+        cout << "Give me a " << types.at(i) << ": ";
+        string in;
+        getline(cin,in);
+        inputs.push_back(in);
+    }
 }
-string Madlib::getOut() {
+string Madlib::getOutput() {
     string out;
     for (int i = 0; i < strs.size(); i++) {
         out.append(strs.at(i) + " ");
@@ -27,4 +32,7 @@ string Madlib::getOut() {
         }
     }
     return out;
+}
+Madlib Madlib::getFromFile (string fileName) {
+    
 }
