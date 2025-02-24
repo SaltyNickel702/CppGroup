@@ -18,6 +18,13 @@ string Madlib::getOut() {
     string out;
     for (int i = 0; i < strs.size(); i++) {
         out.append(strs.at(i) + " ");
+        if (i < inputs.size()) {
+            out.append(inputs.at(i) + " ");
+        } else if (i < types.size()) {
+            out.append("[" + types.at(i) + "] ");
+        } else {
+            out.append("[null] ");
+        }
     }
     return out;
 }
