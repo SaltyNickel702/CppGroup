@@ -11,7 +11,6 @@ class Madlib {
         vector<string> inputs;
         vector<string> strs;
 
-        int inputIndex = 0;
     public:
         Madlib();
         
