@@ -1,11 +1,12 @@
 #include "Madlib.h"
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 using namespace std;
 
 Madlib::Madlib() {};
-void Madlib::addOpperator (string t) {
+void Madlib::addOperator (string t) {
     types.push_back(t);
 }
 void Madlib::addSentence (string s) {
@@ -22,17 +23,52 @@ void Madlib::getUserInput() {
 string Madlib::getOutput() {
     string out;
     for (int i = 0; i < strs.size(); i++) {
-        out.append(strs.at(i) + " ");
+        out.append(strs.at(i));
         if (i < inputs.size()) {
-            out.append(inputs.at(i) + " ");
+            out.append(inputs.at(i));
         } else if (i < types.size()) {
-            out.append("[" + types.at(i) + "] ");
+            out.append("[" + types.at(i) + "]");
         } else {
-            out.append("[null] ");
+            out.append("[null]");
         }
     }
     return out;
 }
-Madlib Madlib::getFromFile (string fileName) {
-    
+int Madlib::getFromFile (string madlibName) {
+    string line;
+    ifstream file("../madlibs/fileName/" + madlibName + ".txt");
+    if (!file.is_open()) return -1;
+    bool appendToLast = false; //in case string is multiple lines long
+    while (getline(file,line)) {
+        bool sent = true; //look for sentence or word identifier
+        string cur = "";
+        
+        for (int i = 0; i < line.size(); i++) {
+            char c = line.at(i);
+            if (sent) {
+                //look for [
+                if (c == '[') {
+                    if (appendToLast) {
+                        strs.back().append(cur);
+                        appendToLast = false;
+                    } else addSentence(cur);
+                    cur = "";
+                    sent = false;
+                } else cur.append(c);
+            } else {
+                //look for ]
+                if (c == ']') {
+                    addOperator(cur);
+                    cur = "";
+                    sent = true;
+                } else cur.append(c);
+            }
+        }
+        
+        if (cur != "") {
+            addSentence(cur);
+            appendToLast = true;
+        }
+        strs.back().append('\n');
+    }
 }
