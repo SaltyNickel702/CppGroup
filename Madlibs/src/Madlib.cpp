@@ -12,5 +12,12 @@ void Madlib::addSentence (string s) {
     strs.push_back(s);
 }
 void Madlib::getUserInput(string ins[]) {
-    
+
+}
+string Madlib::getOut() {
+    string out;
+    for (int i = 0; i < strs.size(); i++) {
+        out.append(strs.at(i) + " ");
+    }
+    return out;
 }
