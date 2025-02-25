@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include "Madlib.h"
 using namespace std;
 
