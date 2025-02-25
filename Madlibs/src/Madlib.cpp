@@ -28,16 +28,17 @@ string Madlib::getOutput() {
             out.append(inputs.at(i));
         } else if (i < types.size()) {
             out.append("[" + types.at(i) + "]");
-        } else {
-            out.append("[null]");
         }
     }
     return out;
 }
 int Madlib::getFromFile (string madlibName) {
     string line;
-    ifstream file("../madlibs/fileName/" + madlibName + ".txt");
-    if (!file.is_open()) return -1;
+    ifstream file("../madlibs/" + madlibName + ".txt");
+    if (!file.is_open()) {
+        cout << "Did not find file" << endl;
+        return -1;
+    };
     bool appendToLast = false; //in case string is multiple lines long
     while (getline(file,line)) {
         bool sent = true; //look for sentence or word identifier
@@ -54,14 +55,14 @@ int Madlib::getFromFile (string madlibName) {
                     } else addSentence(cur);
                     cur = "";
                     sent = false;
-                } else cur.append(c);
+                } else cur+=c;
             } else {
                 //look for ]
                 if (c == ']') {
                     addOperator(cur);
                     cur = "";
                     sent = true;
-                } else cur.append(c);
+                } else cur+=c;
             }
         }
         
@@ -69,6 +70,8 @@ int Madlib::getFromFile (string madlibName) {
             addSentence(cur);
             appendToLast = true;
         }
-        strs.back().append('\n');
+        strs.back() += '\n';
     }
+
+    return 0;
 }

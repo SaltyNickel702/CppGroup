@@ -15,8 +15,12 @@ At the end of the day, we were all (emotion) but had the best time ever! I can't
 
 }
 
-int main()
-{
-    cout<< "Hello world" << endl;
+int main() {
+    //Demo of how to use files
+    Madlib demo;
+    demo.getFromFile("demo");
+    demo.getUserInput();
+    cout << demo.getOutput();
+
     return 0;
 }
