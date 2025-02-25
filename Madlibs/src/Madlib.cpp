@@ -36,7 +36,7 @@ int Madlib::getFromFile (string madlibName) {
     string line;
     ifstream file("../madlibs/" + madlibName + ".txt");
     if (!file.is_open()) {
-        cout << "Did not find file" << endl;
+        cout << "Error: Did not find madlib file" << endl;
         return -1;
     };
     bool appendToLast = false; //in case string is multiple lines long
