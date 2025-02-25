@@ -1,2 +1,2 @@
 cd build
-g++ ../src/*.cpp -o out.app
+g++ --std=c++11 ../src/*.cpp -o out.app
