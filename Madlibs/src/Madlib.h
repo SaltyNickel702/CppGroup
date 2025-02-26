@@ -21,6 +21,8 @@ class Madlib {
         void getUserInput(); //add list of all user inputs
         string getOutput(); //returns filled string
 
+        void debugSetInputs (string in);
+
         int getFromFile (string madlibName); //create a new madlib, and call this method to fill in all values | madlibName does not include .txt | returns -1 if file not found
 };
 

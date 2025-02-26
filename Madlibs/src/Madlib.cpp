@@ -75,3 +75,9 @@ int Madlib::getFromFile (string madlibName) {
 
     return 0;
 }
+
+void Madlib::debugSetInputs (string in) {
+    for (string s : types) {
+        inputs.push_back(in);
+    }
+}

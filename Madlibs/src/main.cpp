@@ -25,7 +25,7 @@ int main() {
     //Demo of how to use files
     Madlib demo;
     demo.getFromFile("demo");
-    demo.getUserInput();
+    demo.debugSetInputs("HI");
     cout << demo.getOutput();
 
     return 0;
