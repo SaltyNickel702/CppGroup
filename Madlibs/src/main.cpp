@@ -8,7 +8,7 @@ int StorySelector() {
     cout << "   1: TDB" << endl;
     cout << "   2: Skiing" << endl;
     cout << "   3: Jumanji" << endl;
-    cout << "   4: TDB" << endl;
+    cout << "   4: Wizard" << endl;
     int story;
     cin >> story;
     return story;
@@ -25,36 +25,45 @@ void story2() {
 void story3() {
     Madlib jumanji;
     jumanji.getFromFile("Jumangi");
+    jumanji.getUserInput();
     cout << jumanji.getOutput();
 }
-void story4() {
-
+void story4() { //Placeholder until David makes a mad lib
+    Madlib wizard;
+    wizard.getFromFile("Wizard");
+    wizard.getUserInput();
+    cout << wizard.getOutput();
 }
 
 
 int main() {
-    int SelectedStory = StorySelector();
-    switch (SelectedStory) {
-        case 1:
-            //story 1 not generated
-            cout << "TBD Story Selected" << endl;
-            story1();
-          break;
-        case 2:
-            cout << "Skiing Story Selected" << endl;
-            story2();
-          break;
-        case 3:
-        // story 3 not generated
-            cout << "Jumanji Story Selected" << endl;
-            story3();
-          break;
-        case 4:
-        // Story 4 not generated yet
-            cout << "TBD Story Selected" << endl;
-            story4();
-          break;
+    bool running = true;
+    while (running) {
+        int SelectedStory = StorySelector();
+        switch (SelectedStory) {
+            case 1:
+                //story 1 not generated
+                cout << "TBD Story Selected" << endl;
+                story1();
+            break;
+            case 2:
+                cout << "Skiing Story Selected" << endl;
+                story2();
+            break;
+            case 3:
+            // story 3 not generated
+                cout << "Jumanji Story Selected" << endl;
+                story3();
+            break;
+            case 4:
+            // Story 4 not generated yet
+                cout << "Wizard Story Selected" << endl;
+                story4();
+            break;
+        }
+        running = false;
     }
+    
 
     return 0;
 }
