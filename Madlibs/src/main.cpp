@@ -14,14 +14,13 @@ The ski lift ride was (adjective) and we could see the entire (noun) from above.
 At the end of the day, we were all (emotion) but had the best time ever! I can't wait to go skiing again with my (family member)!*/
 
 }
-int StorySelector() {
+int StorySelector() { // call This to ask the user what story they want to run (1 - 4). returns that integer.
     cout << "Type the number for your wanted story (1-4): "<< endl;
     cin >> story;
     return story;
 }
 
 int main() {
-    int storySelection
     //Demo of how to use files
     Madlib demo;
     demo.getFromFile("demo");
