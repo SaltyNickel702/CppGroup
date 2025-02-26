@@ -1,13 +1,13 @@
 cd build
-echo.
+echo 
 echo Creating Files
 cmake ..
 
-echo.
+echo 
 echo Building
 cmake --build .
 
-echo.
+echo 
 echo Running
-echo.
+echo 
 ./out
