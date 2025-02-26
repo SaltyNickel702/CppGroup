@@ -15,6 +15,7 @@ At the end of the day, we were all (emotion) but had the best time ever! I can't
 
 }
 int StorySelector() { // call This to ask the user what story they want to run (1 - 4). returns that integer.
+    int story;
     cout << "Type the number for your wanted story (1-4): "<< endl;
     cin >> story;
     return story;
