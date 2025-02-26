@@ -1,2 +1,1 @@
-cd build
-g++ --std=c++11 ../src/*.cpp -o out.app
+g++ --std=c++11 ./src/main.cpp ./src/Madlib.cpp -o out.app
