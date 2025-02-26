@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream>
+#include <string>
 using namespace std;
 
 #ifndef MADLIB_H
@@ -15,13 +15,13 @@ class Madlib {
     public:
         Madlib();
         
-        void addOpperator (string Type); //Adds filler word | Type is (noun, number, adjective, etc)
+        void addOperator (string Type); //Adds filler word | Type is (noun, number, adjective, etc)
         void addSentence (string s); //Adds string between filler words
 
         void getUserInput(); //add list of all user inputs
         string getOutput(); //returns filled string
 
-        static Madlib getFromFile (string fileName); //Ill try to get this to word as soon as everything else works
+        int getFromFile (string madlibName); //create a new madlib, and call this method to fill in all values | madlibName does not include .txt | returns -1 if file not found
 };
 
 #endif
