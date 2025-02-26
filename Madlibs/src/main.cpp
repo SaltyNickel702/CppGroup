@@ -13,11 +13,20 @@ int StorySelector() {
     cin >> story;
     return story;
 }
+void story1() {
+
+}
 void story2() {
     Madlib story2;
     story2.getFromFile("skiing");
     story2.getUserInput();
     cout << story2.getOutput();
+}
+void story3() {
+
+}
+void story4() {
+    
 }
 
 
