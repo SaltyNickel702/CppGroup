@@ -22,6 +22,28 @@ void story2() {
 
 
 int main() {
+    int SelectedStory = StorySelector();
+    switch (SelectedStory) {
+        case 1:
+        //story 1 not generated
+        cout << "TBD Story Selected" << endl;
+        story1();
+          break;
+        case 2:
+        cout << "Skiing Story Selected" << endl;
+        story2();
+          break;
+        case 3:
+        // story 3 not generated
+        cout << "TBD Story Selected" << endl;
+        story3();
+          break;
+        case 4:
+        // Story 4 not generated yet
+        cout << "TBD Story Selected" << endl;
+        story4();
+          break;
+    }
     //Demo of how to use files
     Madlib demo;
     demo.getFromFile("demo");
