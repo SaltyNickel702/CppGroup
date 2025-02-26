@@ -4,7 +4,12 @@
 using namespace std;
 
 int StorySelector() {
-    cout << "Type the number for your wanted story (1-4): "<< endl;
+    cout << "Select One of the following stories: "<< endl;
+    cout << "   1: TDB" << endl;
+    cout << "   2: Skiing" << endl;
+    cout << "   3: TDB" << endl;
+    cout << "   4: TDB" << endl;
+    int story;
     cin >> story;
     return story;
 }
@@ -17,7 +22,6 @@ void story2() {
 
 
 int main() {
-    int storySelection
     //Demo of how to use files
     Madlib demo;
     demo.getFromFile("demo");
