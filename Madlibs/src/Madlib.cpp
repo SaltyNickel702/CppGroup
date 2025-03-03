@@ -43,7 +43,7 @@ int Madlib::getFromFile (string madlibName) {
     while (getline(file,line)) {
         bool sent = true; //look for sentence or word identifier
         string cur = "";
-        
+        if (line.size()<=0) {continue;} // Fix error if the line is empty
         for (int i = 0; i < line.size(); i++) {
             char c = line.at(i);
             if (sent) {
