@@ -26,10 +26,10 @@ void story2() {
     cout << story2.getOutput();
 }
 void story3() {
-    Madlib jumanji;
-    jumanji.getFromFile("EscapeRoom");
-    jumanji.getUserInput();
-    cout << jumanji.getOutput();
+    Madlib escRoom;
+    escRoom.getFromFile("EscapeRoom");
+    escRoom.getUserInput();
+    cout << escRoom.getOutput();
 }
 void story4() { //Placeholder until David makes a mad lib
     Madlib wizard;
