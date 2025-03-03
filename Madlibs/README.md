@@ -1,6 +1,7 @@
 # Madlib C++ Build
 ## Build Info
 Inside of ./build/, there will be an out.app file for MacOS users. We couldn't get the G++ compile statement to work, so the only way to compile is through CMake, which you have to install first<br>
+<br>
 To compile with CMake, just run sh buildCMake.sh<br>
 <br>
 ## How we coded it
