@@ -13,8 +13,7 @@ void Madlib::addSentence (string s) {
     strs.push_back(s);
 }
 void Madlib::getUserInput() {
-    string a;
-    getline(cin,a); //getline doesn't work for some reason on first call in function
+    getline(cin,string()); //getline doesn't work for some reason on first call in function
     for (int i = 0; i < types.size(); i++) {
         cout << "Give me a " << types.at(i) << endl << "?: ";
         string in;
