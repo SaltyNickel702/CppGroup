@@ -48,21 +48,24 @@ int main() {
                 //story 1 not generated
                 cout << "TBD Story Selected" << endl;
                 story1();
-            break;
+                break;
             case 2:
                 cout << "Skiing Story Selected" << endl;
                 story2();
-            break;
+                break;
             case 3:
             // story 3 not generated
                 cout << "Jumanji Story Selected" << endl;
                 story3();
-            break;
+                break;
             case 4:
             // Story 4 not generated yet
                 cout << "Wizard Story Selected" << endl;
                 story4();
-            break;
+                break;
+            default:
+                cout << SelectedStory << " was not recognized" << endl;
+                continue;
         }
         cout << endl << "Do you want to play again? (Y/N)" << endl << "? ";
         char i;
