@@ -15,3 +15,4 @@ To get userinput, we simply call .getUserInput, which loops through all types, a
 - Niko: Madlib class coding
 - Sean: Created the skiing Madlib and implemented it into the code
 - Ulisses: Created Story selector and debugging
+- Jake: Created the EscapeRoom Madlib
