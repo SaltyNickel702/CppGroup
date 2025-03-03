@@ -27,7 +27,7 @@ void story2() {
 }
 void story3() {
     Madlib jumanji;
-    jumanji.getFromFile("Jumangi");
+    jumanji.getFromFile("EscapeRoom");
     jumanji.getUserInput();
     cout << jumanji.getOutput();
 }
