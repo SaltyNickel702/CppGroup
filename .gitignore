@@ -1,2 +1,3 @@
 Madlibs/build/*
 !Madlibs/build/README.md
+!Madlibs/build/out.app
