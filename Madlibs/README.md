@@ -10,3 +10,6 @@ Madlip.h defines the Madlib class, which is used to store madlibs. Inside of the
 Also added a method that auto-populates the madlib class from a txt file stored in ${ROOT}/madlibs/. Inside of "example.txt", inputed words are signified using [brackets], with the type of word inside of the brackets. To populate the madlib instance, create an instance, and call .getFromFile("example").<br>
 <br>
 To get userinput, we simply call .getUserInput, which loops through all types, and askes the user for each type of word. The input is then stored in the inputs vector until needed.
+<br>
+## Contributors
+- Niko: Madlib class coding
