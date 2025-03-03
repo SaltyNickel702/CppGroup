@@ -5,7 +5,7 @@ using namespace std;
 
 int StorySelector() {
     cout << "Select One of the following stories: "<< endl;
-    cout << "   1: TDB" << endl;
+    cout << "   1: Space" << endl;
     cout << "   2: Skiing" << endl;
     cout << "   3: Jumanji" << endl;
     cout << "   4: Wizard" << endl;
@@ -14,7 +14,10 @@ int StorySelector() {
     return story;
 }
 void story1() {
-
+    Madlib space;
+    space.getFromFile("Space");
+    space.getUserInput();
+    cout << space.getOutput();
 }
 void story2() {
     Madlib story2;
@@ -61,7 +64,14 @@ int main() {
                 story4();
             break;
         }
-        running = false;
+        cout << endl << "Do you want to play again? (Y/N)" << endl << "? ";
+        char i;
+        cin >> i;
+        if (!(i == 'Y' || i == 'y')) {
+            if (!(i == 'N' || i =='n')) cout << i << " was not recognized" << endl;
+            cout << "Exiting" << endl;
+            running = false;
+        } else cout << endl;
     }
     
 
