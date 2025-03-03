@@ -12,7 +12,7 @@ Also added a method that auto-populates the madlib class from a txt file stored 
 To get userinput, we simply call .getUserInput, which loops through all types, and askes the user for each type of word. The input is then stored in the inputs vector until needed.
 <br>
 ## Contributors
-- Niko: Madlib class coding
+- Niko: Added Madlib class logic
 - Sean: Created the skiing Madlib and implemented it into the code
 - Ulisses: Created Story selector and debugging
 - Jake: Created the EscapeRoom Madlib
