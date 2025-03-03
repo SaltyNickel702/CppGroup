@@ -46,7 +46,7 @@ int main() {
         switch (SelectedStory) {
             case 1:
                 //story 1 not generated
-                cout << "TBD Story Selected" << endl;
+                cout << "Space Story Selected" << endl;
                 story1();
                 break;
             case 2:
