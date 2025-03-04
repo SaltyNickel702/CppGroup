@@ -7,7 +7,7 @@ int StorySelector() {
     cout << "Select One of the following stories: "<< endl;
     cout << "   1: Space" << endl;
     cout << "   2: Skiing" << endl;
-    cout << "   3: Jumanji" << endl;
+    cout << "   3: Escape Room" << endl;
     cout << "   4: Wizard" << endl;
     int story;
     cin >> story;
@@ -55,7 +55,7 @@ int main() {
                 break;
             case 3:
             // story 3 not generated
-                cout << "Jumanji Story Selected" << endl;
+                cout << "Escape Room Story Selected" << endl;
                 story3();
                 break;
             case 4:
