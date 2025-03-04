@@ -4,14 +4,26 @@
 using namespace std;
 
 int StorySelector() {
-    cout << "Select One of the following stories: "<< endl;
-    cout << "   1: Space" << endl;
-    cout << "   2: Skiing" << endl;
-    cout << "   3: Escape Room" << endl;
-    cout << "   4: Wizard" << endl;
-    int story;
-    cin >> story;
-    return story;
+    bool ask = true;
+    while(ask){ // while loop and cin.fail check lets code reprompt the user.
+        cout << "Select One of the following stories: "<< endl;
+        cout << "   1: Space" << endl;
+        cout << "   2: Skiing" << endl;
+        cout << "   3: Escape Room" << endl;
+        cout << "   4: Wizard" << endl;
+        int story;
+        cin >> story;
+        if(story > 0 && story < 5){
+            ask = false;
+            return story;
+        }
+        if (cin.fail()){
+            cout << "please select a valid option" << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+    }
+    return 0;
 }
 void story1() {
     Madlib space;
