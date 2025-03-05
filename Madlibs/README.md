@@ -16,3 +16,4 @@ To get userinput, we simply call .getUserInput, which loops through all types, a
 - Sean: Created the skiing Madlib and implemented it into the code
 - Ulisses: Created Story selector and debugging
 - Jake: Created the EscapeRoom Madlib
+- Dallin: Created the Space Madlib and implemented into main.cpp
