@@ -2,5 +2,16 @@
 using namespace std;
 int main()
 {
-    cout << "hallo bozo" << endl;
+    cout << "########################" << endl;
+    cout << "#                      #" << endl;
+    cout << "#                      #" << endl;
+    cout << "#                      #" << endl;
+    cout << "#                      #" << endl;
+    cout << "#                      #" << endl;
+    cout << "#                      #" << endl;
+    cout << "#                      #" << endl;
+    cout << "#                      #" << endl;
+    cout << "#                      #" << endl;
+    cout << "########################" << endl;
+
 }
