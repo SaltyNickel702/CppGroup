@@ -7,4 +7,4 @@
 - Ulisses:
 - David (Maybe): 
 
-// We will need someone who handle terrain gen, block creation, and asset creation. Someone should also do the character controller
+// We will need someone who handle terrain gen, block creation, asset creation, GUI, character controller
