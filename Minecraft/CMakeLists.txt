@@ -13,6 +13,5 @@ add_executable(out ${SOURCES})
 
 
 include_directories("./include/") #I think this is the only one needed for all include
-include_directories(${GLFW_INCLUDE})
 
-target_link_libraries(out ${GLFW__STATIC_LIB_MINGW-W64})
+target_link_libraries(out "./statLib/libglfw3.a")
