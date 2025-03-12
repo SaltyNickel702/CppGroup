@@ -2,7 +2,7 @@
 ## Contributors
 - Niko: Handle OpenGL rendering + Chunk mesh gen
 - Dallin:
-- Sean:
+- Sean: Terrain Generation
 - Jake:
 - Ulisses:
 - David (Maybe): 
