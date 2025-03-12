@@ -14,11 +14,14 @@ namespace World { //world data
     void setBlock (int x, int y, int z, int block);
     void getBlock (int x, int y, int z);
     
-    float Camera[5]; //xyz + pitch + yaw
-
+    namespace Camera {
+        float pos[3];
+        float rot[2]; //pitch, yaw
+    }
     namespace Player {
         float pos[3];
         float rot[2]; //pitch, yaw
+        int inventory[10];
     }
 }
 
