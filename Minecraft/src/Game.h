@@ -8,6 +8,7 @@
 #include <thread>
 #include <functional>
 #include <vector>
+#include <lib/FastNoiseLite.h>
 
 //Project Classes
 #include "chunk.h"
