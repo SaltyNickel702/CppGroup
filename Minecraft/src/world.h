@@ -15,6 +15,11 @@ namespace World { //world data
     void getBlock (int x, int y, int z);
     
     float Camera[5]; //xyz + pitch + yaw
+
+    namespace Player {
+        float pos[3];
+        float rot[2]; //pitch, yaw
+    }
 }
 
 #endif WORLD_H
