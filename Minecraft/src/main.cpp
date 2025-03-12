@@ -1,6 +1,4 @@
-#include <iostream>
-
-using namespace std;
+#include "Game.h" //includes all needed includes
 
 int main () {
     

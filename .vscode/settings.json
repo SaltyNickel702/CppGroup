@@ -54,8 +54,10 @@
     "optional": "cpp",
     "sstream": "cpp",
     "unordered_map": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "functional": "cpp"
   },
   "C_Cpp_Runner.msvcBatchPath": "",
-  "cmake.ignoreCMakeListsMissing": true
+  "cmake.ignoreCMakeListsMissing": true,
+  "C_Cpp.errorSquiggles": "enabled"
 }
