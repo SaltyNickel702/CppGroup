@@ -10,7 +10,9 @@ using namespace std;
 
 namespace World { //world data
     map<int[2],Chunk> chunks;
-    void breakBlock (int x, int y, int z);
+    
+    void setBlock (int x, int y, int z, int block);
+    void getBlock (int x, int y, int z);
     
     float Camera[5]; //xyz + pitch + yaw
 }
