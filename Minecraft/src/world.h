@@ -8,7 +8,7 @@ using namespace std;
 #ifndef WORLD_H
 #define WORLD_H
 
-namespace World {
+namespace World { //world data
     map<int[2],Chunk> chunks;
     void breakBlock (int x, int y, int z);
     
