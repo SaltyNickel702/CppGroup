@@ -15,6 +15,13 @@ namespace World { //world data
     void getBlock (int x, int y, int z);
     
     float Camera[5]; //xyz + pitch + yaw
+
+    void saveGame (string fileName);
+
+    namespace Player {
+        float pos[3];
+        float rot[2];
+    }
 }
 
 #endif WORLD_H
