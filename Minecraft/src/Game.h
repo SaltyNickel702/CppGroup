@@ -11,6 +11,7 @@
 
 //Project Classes
 #include "chunk.h"
+#include "world.h"
 
 
 using namespace std;

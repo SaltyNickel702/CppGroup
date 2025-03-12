@@ -1,10 +1,10 @@
 # Minecraft Clone Game
 ## Contributors
 - Niko: Handle OpenGL rendering + Chunk mesh gen
-- Dallin:
-- Sean:
-- Jake:
-- Ulisses:
+- Dallin: GUI
+- Sean: Terrain Gen
+- Jake: Art
+- Ulisses: Player Controller
 - David (Maybe): 
 
 // We will need someone who handle terrain gen, block creation, asset creation, GUI, character controller
