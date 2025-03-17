@@ -1,12 +1,11 @@
 # Pet Game
 
 ## Contributors
-- Niko: Handle OpenGL rendering + Chunk mesh gen
-- Dallin: GUI
-- Sean: Terrain Gen
-- Jake: Art
-- Ulisses: Player Controller
-- David (Maybe): 
-
+- Niko: Implement Realtime
+- Dallin: OpenGL GUI
+- Sean: Animal Classes
+- Jake: User input
+- Ulisses: Debugging & testing
+- David : Art
 ### External Links
 [Class Diagram Link]()
