@@ -8,4 +8,4 @@
 - Ulisses: Debugging & testing
 - David : Art
 ### External Links
-[Class Diagram Link]()
+[Class Diagram Link](https://docs.google.com/drawings/d/1j7KsJQUFnOQelhVwNzeAWEQ-xstuCmhdUrn71Gdu8aI/edit?usp=sharing)
