@@ -1,3 +1,11 @@
+**/.DS_Store
+.DS_Store
+
+#Madlibs
 Madlibs/build/*
 !Madlibs/build/README.md
 !Madlibs/build/out.app
+
+#TicTacToe
+
+#Minecraft

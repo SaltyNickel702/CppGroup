@@ -11,16 +11,20 @@ using namespace std;
 namespace World { //world data
     map<int[2],Chunk> chunks;
     
-    void setBlock (int x, int y, int z, int block);
-    void getBlock (int x, int y, int z);
+    int* setBlock (int x, int y, int z, int block); //int[3], make sure to delete array after use. No memory leakage
+    int* getBlock (int x, int y, int z);
     
-    float Camera[5]; //xyz + pitch + yaw
-
-    void saveGame (string fileName);
-
+    namespace Camera {
+        float pos[3];
+        float rot[2]; //pitch, yaw
+        float FOV;
+    }
     namespace Player {
         float pos[3];
-        float rot[2];
+        float rot[2]; //pitch, yaw
+        int inventory[10];
+
+        int* getRayTrace (float distance);
     }
 }
 
