@@ -17,6 +17,7 @@ namespace World { //world data
     namespace Camera {
         float pos[3];
         float rot[2]; //pitch, yaw
+        float FOV;
     }
     namespace Player {
         float pos[3];
