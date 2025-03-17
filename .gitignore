@@ -9,3 +9,5 @@ Madlibs/build/*
 #TicTacToe
 
 #Minecraft
+/Minecraft/build/*
+!/Minecraft/build/README.md

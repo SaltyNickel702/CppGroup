@@ -3,12 +3,12 @@
 
 //External Libraries
 #include <iostream>
-#include <glad.h>
-#include <glfw3.h>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include <thread>
 #include <functional>
 #include <vector>
-#include <lib/FastNoiseLite.h>
+#include "lib/FastNoiseLite.h"
 
 //Project Classes
 #include "chunk.h"
@@ -25,4 +25,4 @@ namespace Game {
 	void addKeydownCallback(int GLFWkey, const function<void()>& func); //triggers passed in function when key is pressed
 }
 
-#endif GAME_H
+#endif
