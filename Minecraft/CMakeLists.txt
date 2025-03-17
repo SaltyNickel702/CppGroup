@@ -15,9 +15,4 @@ add_executable(out ${SOURCES})
 include_directories("${CMAKE_SOURCE_DIR}/include/") #I think this is the only one needed for all include
 
 
-target_link_libraries(out
-    "-framework CoreFoundation"
-    "-framework IOKit"
-    "-framework Cocoa"
-)
 target_link_libraries(out "${CMAKE_SOURCE_DIR}/statLib/libglfw3.a")
