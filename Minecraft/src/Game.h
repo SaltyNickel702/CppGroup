@@ -11,6 +11,7 @@
 #include "lib/FastNoiseLite.h"
 
 //Project Classes
+#include "Shader.h"
 #include "chunk.h"
 #include "world.h"
 
