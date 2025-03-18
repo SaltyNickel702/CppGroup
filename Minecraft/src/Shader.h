@@ -27,8 +27,8 @@ class Shader {
 
 			//Read Files
 			try {
-				vShader.open(vertexPath);
-				fShader.open(fragmentPath);
+				vShader.open("./assets/shaders/" + vertexPath);
+				fShader.open("./assets/shaders/" + fragmentPath);
 
 				stringstream vShaderStream, fShaderStream;
 				vShaderStream << vShader.rdbuf();
