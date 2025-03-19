@@ -49,7 +49,7 @@ namespace Game {
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	
 		// Create a windowed GLFW window
-		GLFWwindow* window = glfwCreateWindow(w, h, "GLFW and GLAD App", nullptr, nullptr);
+		window = glfwCreateWindow(w, h, "GLFW and GLAD App", nullptr, nullptr);
 		if (!window) {
 			std::cerr << "Failed to create GLFW window!" << std::endl;
 			glfwTerminate();
@@ -164,13 +164,19 @@ namespace Game {
 		// Render loop
 		while (!glfwWindowShouldClose(window)) {
 			// Process input
-			if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-				glfwSetWindowShouldClose(window, true);
-			}
+			processInput(window);
 	
 			// Rendering commands
 			glClearColor(.5, .75f, .2f, 1.0f); // Black background
 			glClear(GL_COLOR_BUFFER_BIT); // Clear the screen
+
+			//RENDERING
+			glClearColor(.1f,.5f,.4f,1.0f);
+			glClear(GL_COLOR_BUFFER_BIT);
+	
+			glUseProgram(shaderProgram);
+			glBindVertexArray(VAO);
+			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	
 			// Swap buffers and poll events
 			glfwSwapBuffers(window);
