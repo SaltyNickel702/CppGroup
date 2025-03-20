@@ -46,7 +46,7 @@ namespace Game {
 	
 		// Set GLFW version
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4);
 	
 		// Create a windowed GLFW window
 		window = glfwCreateWindow(w, h, "GLFW and GLAD App", NULL, NULL);
