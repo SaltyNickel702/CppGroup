@@ -46,7 +46,7 @@ namespace Game {
 	
 		// Set GLFW version
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	
 		// Create a windowed GLFW window
 		window = glfwCreateWindow(w, h, "GLFW and GLAD App", NULL, NULL);
@@ -66,7 +66,7 @@ namespace Game {
 			return -1;
 		}
 
-		glViewport(0,0,w,h);
+		// glViewport(0,0,w,h);
 
 		//Shader Compilation + triangle test
 		Shader shaderProgram("basicVert.glsl","basicFrag.glsl");
@@ -75,9 +75,9 @@ namespace Game {
 		//Assign how to read vertex data
 		//Triangle Verteces
 		float vertices[] = {
-			-0.5,-0.5,0, 1.0f,0.0f,0.0f,
-			0.5,-0.5,0, 0.0f,1.0f,0.0f,
-			0,0.5,0, 0.0f,0.0f,1.0f
+			-0.5,-0.5,0.0f, 1.0f,0.0f,0.0f,
+			0.5,-0.5,0.0f, 0.0f,1.0f,0.0f,
+			0.0f,0.5,0.0f, 0.0f,0.0f,1.0f
 		};
 		unsigned int indices[] = {
 			0, 1, 2,
