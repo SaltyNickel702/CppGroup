@@ -1,4 +1,4 @@
-#version 340 core
+#version 330 core
 
 uniform float time;
 
