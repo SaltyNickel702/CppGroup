@@ -1,0 +1,3 @@
+/Users/9608931/Documents/GitHub/CppGroup/Dalin/Testing/build/CMakeFiles/out.dir
+/Users/9608931/Documents/GitHub/CppGroup/Dalin/Testing/build/CMakeFiles/edit_cache.dir
+/Users/9608931/Documents/GitHub/CppGroup/Dalin/Testing/build/CMakeFiles/rebuild_cache.dir

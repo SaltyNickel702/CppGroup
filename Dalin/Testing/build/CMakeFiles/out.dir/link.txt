@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/out.dir/Libraries/include/glm/detail/glm.cpp.o -o out  -framework CoreFoundation -framework IOKit -framework Cocoa /Users/9608931/Documents/GitHub/CppGroup/Dalin/Testing/Libraries/lib/libglfw3.a
