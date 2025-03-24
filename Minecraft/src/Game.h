@@ -11,6 +11,7 @@
 #include "lib/FastNoiseLite.h"
 
 //Project Classes
+#include "Shader.h"
 #include "chunk.h"
 #include "world.h"
 
@@ -23,6 +24,7 @@ namespace Game {
 	int init(int w, int h);
 	bool keyDown(int GLFWkey); //is key held Down
 	void addKeydownCallback(int GLFWkey, const function<void()>& func); //triggers passed in function when key is pressed
+	
 }
 
 #endif
