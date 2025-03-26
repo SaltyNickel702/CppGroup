@@ -8,6 +8,8 @@ using namespace std;
 class Block {
     public:
         Block ();
+        string displayName;
+        float blockType;
 };
 
 

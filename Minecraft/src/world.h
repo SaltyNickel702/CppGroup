@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include "Block.h"
 
 using namespace std;
 
