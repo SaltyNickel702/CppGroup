@@ -3,13 +3,13 @@
 void assignBlocks () {
     Block airBlock();
 
-    Block grass();
+    Block grassBlock();
 
-    Block dirt();
+    Block dirtBlock();
 
-    Block stone();
+    Block stoneBlock();
 
-    Block wood();
+    Block woodBlock();
 
 }
 
