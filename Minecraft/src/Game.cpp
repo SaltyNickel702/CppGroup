@@ -38,46 +38,101 @@ namespace Game {
 	GLFWwindow* window = nullptr;
 
 	int init(int w, int h) {
-		// Initialize GLFW
-		if (!glfwInit()) {
-			std::cerr << "Failed to initialize GLFW!" << std::endl;
-			return -1;
-		}
-	
-		// Set GLFW version
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		//Initialize
+		glfwInit();
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); //Set Version
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	
-		// Create a windowed GLFW window
-		window = glfwCreateWindow(w, h, "GLFW and GLAD App", NULL, NULL);
-		if (!window) {
-			cout << "Failed to create GLFW window!" << endl;
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); //Use core version of OpenGL
+		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); //FOR MACOS
+
+
+		//Create GLFW window
+		window = glfwCreateWindow(w, h, "OpenGL Test", NULL, NULL); //Size, title, monitor, shared recourses
+		if (window == NULL) {
+			cout << "Failed to create GLFW window" << endl;
 			glfwTerminate();
 			return -1;
 		}
-	
-		// Make the window's context current
 		glfwMakeContextCurrent(window);
-		glfwSetFramebufferSizeCallback(window, windowResizeCallback);
-	
-		// Initialize GLAD to load OpenGL functions
+
+
+		//Initialize GLAD
 		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-			cout << "Failed to initialize GLAD!" << endl;
+			cout << "Failed to initialize GLAD" << endl;
 			return -1;
 		}
 
-		// glViewport(0,0,w,h);
+		//Sets GL Viewport (camera)
+		glViewport(0, 0, w, h);
+		glfwSetFramebufferSizeCallback(window,windowResizeCallback); //assigns callback function
+
+
 
 		//Shader Compilation + triangle test
+
+		//Vertex Shader
+		// const char *vertexShaderSource = "#version 330 core\n"
+		// 	"layout (location = 0) in vec3 aPos;\n"
+		// 	"void main()\n"
+		// 	"{\n"
+		// 	" gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+		// 	"}\0";
+		// unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
+		// glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+		// glCompileShader(vertexShader);
+		// // check for shader compile errors
+		// int success;
+		// char infoLog[512];
+		// glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
+		// if (!success)
+		// {
+		// 	glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
+		// 	std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+		// }
+
+		// //Fragment Shader
+		// const char* fragmentShaderSource = "#version 330 core\n"
+		// 	"out vec4 FragColor;\n"
+		// 	"void main()\n"
+		// 	"{\n"
+		// 	"FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+		// 	"}\0";
+		// unsigned int fragmentShader;
+		// fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+		// glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
+		// glCompileShader(fragmentShader);
+
+		// glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
+		// if(!success)
+		// {
+		// 	glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
+		// 	cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << endl;
+		// }
+
+		// //Link to Shader Program
+		// unsigned int shaderProgram;
+		// shaderProgram = glCreateProgram();
+		// glAttachShader(shaderProgram,vertexShader);
+		// glAttachShader(shaderProgram,fragmentShader);
+		// glLinkProgram(shaderProgram);
+		// glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
+		// if(!success) {
+		// 	glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+		// 	cout << "ERROR::SHADER::PROGRAM::COMPILATION_FAILED\n" << infoLog << endl;
+		// }
+
+		// //delete shader programs
+		// glDeleteShader(vertexShader);
+		// glDeleteShader(fragmentShader);
 		Shader shaderProgram("basicVert.glsl","basicFrag.glsl");
 
 
 		//Assign how to read vertex data
 		//Triangle Verteces
 		float vertices[] = {
-			-0.5,-0.5,0.0f, 1.0f,0.0f,0.0f,
-			0.5,-0.5,0.0f, 0.0f,1.0f,0.0f,
-			0.0f,0.5,0.0f, 0.0f,0.0f,1.0f
+			-0.5,-0.5,0, 1.0f,0.0f,0.0f,
+			0.5,-0.5,0,  0.0f,1.0f,0.0f,
+			0,0.5,0,     0.0f,0.0f,1.0f
 		};
 		unsigned int indices[] = {
 			0, 1, 2,
@@ -98,12 +153,11 @@ namespace Game {
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
 
-		glVertexAttribPointer(1,3,GL_FLOAT, GL_FALSE, 6*sizeof(float),(void*)(3* sizeof(float)));
+		glVertexAttribPointer(1,3,GL_FLOAT, GL_FALSE, 6 * sizeof(float),(void*)(3* sizeof(float)));
 		glEnableVertexAttribArray(1);
 
 		// note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+		glBindBuffer(GL_ARRAY_BUFFER, 0); 
 
 		// You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
 		// VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
