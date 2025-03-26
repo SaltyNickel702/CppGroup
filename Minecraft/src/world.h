@@ -10,6 +10,7 @@ using namespace std;
 
 namespace World { //world data
     extern map<int[2],Chunk> chunks;
+    map<int,Block> blockTypes;
     
     int* setBlock (int x, int y, int z, int block); //int[3], make sure to delete array after use. No memory leakage
     int* getBlock (int x, int y, int z);
