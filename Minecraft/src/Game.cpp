@@ -37,7 +37,7 @@ namespace {
 namespace Game {
 	GLFWwindow* window = nullptr;
 
-	unsigned int genTexture (string ImgName) {
+	unsigned int genTexture (string ImgName) { //make sure to set active texture before loading
 		unsigned int texture;
 		glGenTextures(1, &texture);
 		glBindTexture(GL_TEXTURE_2D, texture);
@@ -46,6 +46,19 @@ namespace Game {
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+		string ImgRel = "./assets/textures/" + ImgName;
+		int width, height, nrChannels;
+		unsigned char *data = stbi_load(ImgRel.c_str(), &width, &height, &nrChannels, 0);
+		if (data) {
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glGenerateMipmap(GL_TEXTURE_2D);
+		} else {
+			cout << "Failed to Load Texture" << endl;
+		}
+		stbi_image_free(data);
+		glBindTexture(GL_TEXTURE_2D, 0);
+		return texture;
 	}
 
 	int init(int w, int h) {
@@ -121,7 +134,9 @@ namespace Game {
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0); 
 		glBindVertexArray(0);
 
-
+		//Create Textures
+		glActiveTexture(GL_TEXTURE0);
+		unsigned int texture1 = Game::genTexture("GrassSide.png");
 
 		// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
@@ -138,6 +153,10 @@ namespace Game {
 
 			
 			glUseProgram(shaderProgram.ID);
+
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D,texture1);
+			
 			glBindVertexArray(VAO);
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
