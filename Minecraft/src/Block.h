@@ -9,6 +9,7 @@ class Block {
     public:
         Block ();
         string displayName;
+        float blockType;
 };
 
 
