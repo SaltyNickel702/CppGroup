@@ -9,7 +9,7 @@ using namespace std;
 #define WORLD_H
 
 namespace World { //world data
-    extern map<int[2],Chunk> chunks;
+    map<int[2],Chunk> chunks;
     map<int,Block> blockTypes;
     
     int* setBlock (int x, int y, int z, int block); //int[3], make sure to delete array after use. No memory leakage
