@@ -8,7 +8,8 @@
 #include <thread>
 #include <functional>
 #include <vector>
-#include "lib/FastNoiseLite.h"
+#include <FastNoise/FastNoiseLite.h>
+#include <stb/stb_image.h>
 
 //Project Classes
 #include "Shader.h"
