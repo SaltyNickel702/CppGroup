@@ -15,6 +15,7 @@
 #include "Shader.h"
 #include "chunk.h"
 #include "world.h"
+#include "Block.h"
 
 
 using namespace std;
