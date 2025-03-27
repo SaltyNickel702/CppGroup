@@ -71,7 +71,7 @@ namespace Game {
 
 
 		//Create GLFW window
-		window = glfwCreateWindow(w, h, "OpenGL Test", NULL, NULL); //Size, title, monitor, shared recourses
+		window = glfwCreateWindow(w, h, "Craftmine", NULL, NULL); //Size, title, monitor, shared recourses
 		if (window == NULL) {
 			cout << "Failed to create GLFW window" << endl;
 			glfwTerminate();
