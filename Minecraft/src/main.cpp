@@ -2,6 +2,8 @@
 #include "Game.h" //includes all needed includes
 
 int main () {
-    Game::init(800,800);
+    thread init(Game::init,800,800);
 
+
+    init.join();
 }
