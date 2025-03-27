@@ -8,8 +8,8 @@
 #include <thread>
 #include <functional>
 #include <vector>
-// #include <FastNoise/FastNoiseLite.h>
-// #include "stbi/stb_image.h"
+#include <FastNoise/FastNoiseLite.h>
+#include <stbi/stb_image.h>
 
 //Project Classes
 #include "Shader.h"
@@ -23,7 +23,7 @@ using namespace std;
 
 namespace Game {
 	extern GLFWwindow* window;
-	unsigned int genTexture (string ImgName);
+	// unsigned int genTexture (string ImgName);
 	
 	int init(int w, int h);
 	bool keyDown(int GLFWkey); //is key held Down

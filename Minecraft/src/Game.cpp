@@ -13,7 +13,7 @@ namespace {
 	vector<function<void()>> functionCalls[GLFW_KEY_LAST-GLFW_KEY_SPACE];
 	void processInput(GLFWwindow* window) {
 		//esc key closes app (temporary)
-		// if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) glfwSetWindowShouldClose(window, true);
+		if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) glfwSetWindowShouldClose(window, true);
 
 
 		//Adding/removing keys to keysDown | If new key is added, call callback functions
@@ -37,29 +37,29 @@ namespace {
 namespace Game {
 	GLFWwindow* window = nullptr;
 
-	// unsigned int genTexture (string ImgName) { //make sure to set active texture before loading
-	// 	unsigned int texture;
-	// 	glGenTextures(1, &texture);
-	// 	glBindTexture(GL_TEXTURE_2D, texture);
+	unsigned int genTexture (string ImgName) { //make sure to set active texture before loading
+		unsigned int texture;
+		glGenTextures(1, &texture);
+		glBindTexture(GL_TEXTURE_2D, texture);
 
-	// 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	// 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	// 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	// 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-	// 	string ImgRel = "./assets/textures/" + ImgName;
-	// 	int width, height, nrChannels;
-	// 	unsigned char *data = stbi_load(ImgRel.c_str(), &width, &height, &nrChannels, 0);
-	// 	if (data) {
-	// 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-	// 		glGenerateMipmap(GL_TEXTURE_2D);
-	// 	} else {
-	// 		cout << "Failed to Load Texture" << endl;
-	// 	}
-	// 	stbi_image_free(data);
-	// 	glBindTexture(GL_TEXTURE_2D, 0);
-	// 	return texture;
-	// }
+		string ImgRel = "./assets/textures/" + ImgName;
+		int width, height, nrChannels;
+		unsigned char *data = stbi_load(ImgRel.c_str(), &width, &height, &nrChannels, 0);
+		if (data) {
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glGenerateMipmap(GL_TEXTURE_2D);
+		} else {
+			cout << "Failed to Load Texture" << endl;
+		}
+		stbi_image_free(data);
+		glBindTexture(GL_TEXTURE_2D, 0);
+		return texture;
+	}
 
 	int init(int w, int h) {
 		//Initialize
@@ -101,12 +101,14 @@ namespace Game {
 		//Assign how to read vertex data
 		//Triangle Verteces
 		float vertices[] = {
-			-0.5f,-0.5f,0.0f, 1.0f,0.0f,0.0f,
-			0.5f,-0.5f,0.0f, 0.0f,1.0f,0.0f,
-			0.0f,0.5f,0.0f, 0.0f,0.0f,1.0f
+			-0.5f,-0.5f,0.0f,	1.0f,0.0f,0.0f,	0.0f,1.0f,		//bottom left
+			-0.5f,0.5f,0.0f, 	0.0f,1.0f,0.0f,	0.0f,0.0f,		//Top Left
+			0.5f,-0.5f,0.0f,	0.0f,0.0f,1.0f,	1.0f,1.0f,		//Bottom Right
+			0.5f,0.5f,0.0f,		1.0f,1.0f,1.0f,	1.0f,0.0f		//Top Right
 		};
 		unsigned int indices[] = {
-			0, 1, 2
+			0, 2, 1,
+			1, 2, 3
 		};
 
 		unsigned int VBO, VAO, EBO;
@@ -122,26 +124,27 @@ namespace Game {
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
 
-		glVertexAttribPointer(1,3,GL_FLOAT, GL_FALSE, 6 * sizeof(float),(void*)(3* sizeof(float)));
+		glVertexAttribPointer(1,3,GL_FLOAT, GL_FALSE, 8 * sizeof(float),(void*)(3 * sizeof(float)));
 		glEnableVertexAttribArray(1);
+
+		glVertexAttribPointer(2,2,GL_FLOAT, GL_FALSE, 8 * sizeof(float),(void*)(6 * sizeof(float)));
+		glEnableVertexAttribArray(2);
 
 		
 		//Unbind data
 		glBindBuffer(GL_ARRAY_BUFFER, 0); 
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0); 
 		glBindVertexArray(0);
 
 		//Create Textures
-		// glActiveTexture(GL_TEXTURE0);
-		// unsigned int texture1 = Game::genTexture("GrassSide.png");
+		glActiveTexture(GL_TEXTURE0);
+		unsigned int texture1 = Game::genTexture("GrassSide.png");
 
 		// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		//Render loop
-
 		while(!glfwWindowShouldClose(window)) {
 			processInput(window);
 
@@ -149,17 +152,17 @@ namespace Game {
 			glClearColor(.1f,.5f,.4f,1.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
 	
-			float timeValue = glfwGetTime();
-			glUniform1f(glGetUniformLocation(shaderProgram.ID,"time"),timeValue);
-
 			
 			glUseProgram(shaderProgram.ID);
+			float timeValue = glfwGetTime();
+			glUniform1f(glGetUniformLocation(shaderProgram.ID,"time"),timeValue);
+	
 
-			// glActiveTexture(GL_TEXTURE0);
-			// glBindTexture(GL_TEXTURE_2D,texture1);
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D,texture1);
 			
 			glBindVertexArray(VAO);
-			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 	
 			glfwSwapBuffers(window); //updates screen buffer
