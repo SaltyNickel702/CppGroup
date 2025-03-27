@@ -11,6 +11,9 @@ using namespace std;
 
 namespace World { //world data
     extern map<string,Chunk> chunks;
+    const vector<float*> getChunkMesh (int cx, int cy); //two float arrays, one for vertices, one for indices
+    static vector<float*> joinChunkMeshes (int x, int y, Chunk chunks[]);
+
     extern map<int,Block> blockTypes;
     
     int* setBlock (int x, int y, int z, int block); //int[3], make sure to delete array after use. No memory leakage
