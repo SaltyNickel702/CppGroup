@@ -71,7 +71,7 @@ namespace Game {
 
 
 		//Create GLFW window
-		window = glfwCreateWindow(w, h, "OpenGL Test", NULL, NULL); //Size, title, monitor, shared recourses
+		window = glfwCreateWindow(w, h, "Craftmine", NULL, NULL); //Size, title, monitor, shared recourses
 		if (window == NULL) {
 			cout << "Failed to create GLFW window" << endl;
 			glfwTerminate();
@@ -98,45 +98,22 @@ namespace Game {
 		Shader shaderProgram("basicVert.glsl","basicFrag.glsl");
 
 
-		//Assign how to read vertex data
-		//Triangle Verteces
-		float vertices[] = {
+		//Create Model
+		vector<float> vertices {
 			-0.5f,-0.5f,0.0f,	1.0f,0.0f,0.0f,	0.0f,1.0f,		//bottom left
 			-0.5f,0.5f,0.0f, 	0.0f,1.0f,0.0f,	0.0f,0.0f,		//Top Left
 			0.5f,-0.5f,0.0f,	0.0f,0.0f,1.0f,	1.0f,1.0f,		//Bottom Right
 			0.5f,0.5f,0.0f,		1.0f,1.0f,1.0f,	1.0f,0.0f		//Top Right
 		};
-		unsigned int indices[] = {
+		vector<unsigned int> attr {
+			3,3,2
+		};
+		vector<unsigned int> indices {
 			0, 2, 1,
 			1, 2, 3
 		};
+		Model m1(vertices, indices, attr);
 
-		unsigned int VBO, VAO, EBO;
-		glGenVertexArrays(1, &VAO);
-		glGenBuffers(1, &VBO);
-		glGenBuffers(1, &EBO);
-		glBindVertexArray(VAO); //editing VAO
-
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-
-		glVertexAttribPointer(1,3,GL_FLOAT, GL_FALSE, 8 * sizeof(float),(void*)(3 * sizeof(float)));
-		glEnableVertexAttribArray(1);
-
-		glVertexAttribPointer(2,2,GL_FLOAT, GL_FALSE, 8 * sizeof(float),(void*)(6 * sizeof(float)));
-		glEnableVertexAttribArray(2);
-
-		
-		//Unbind data
-		glBindBuffer(GL_ARRAY_BUFFER, 0); 
-		glBindVertexArray(0);
 
 		//Create Textures
 		glActiveTexture(GL_TEXTURE0);
@@ -145,12 +122,13 @@ namespace Game {
 		// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		//Render loop
+		glEnable(GL_DEPTH_TEST);
 		while(!glfwWindowShouldClose(window)) {
 			processInput(window);
 
 			//RENDERING
 			glClearColor(.1f,.5f,.4f,1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
 			
 			glUseProgram(shaderProgram.ID);
@@ -161,7 +139,7 @@ namespace Game {
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D,texture1);
 			
-			glBindVertexArray(VAO);
+			glBindVertexArray(m1.VAO);
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 	

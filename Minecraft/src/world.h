@@ -10,7 +10,7 @@ using namespace std;
 #define WORLD_H
 
 namespace World { //world data
-    extern map<string,Chunk> chunks;
+    extern map<int, map<int,Chunk>> chunks;
     const vector<float*> getChunkMesh (int cx, int cy); //two float arrays, one for vertices, one for indices
     static vector<float*> joinChunkMeshes (int x, int y, Chunk chunks[]);
 

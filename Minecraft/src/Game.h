@@ -16,6 +16,7 @@
 #include "chunk.h"
 #include "world.h"
 #include "Block.h"
+#include "Model.h"
 
 
 using namespace std;
