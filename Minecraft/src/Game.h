@@ -9,7 +9,7 @@
 #include <functional>
 #include <vector>
 #include <FastNoise/FastNoiseLite.h>
-#include <stb/stb_image.h>
+#include <stbi/stb_image.h>
 
 //Project Classes
 #include "Shader.h"
