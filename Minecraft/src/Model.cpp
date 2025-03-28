@@ -1,5 +1,5 @@
 #include "Model.h"
-#include "Game.h"
+#include <glad/glad.h>
 
 #include <iostream>
 using namespace std;
